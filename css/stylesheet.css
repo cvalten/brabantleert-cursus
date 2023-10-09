@@ -1,0 +1,33 @@
+body{
+    background-color: darkgrey;
+    font-size: 30px;
+    color:blue;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+a{
+    color:yellow;
+}
+footer{
+    position: absolute;
+    bottom: 0;
+    height: 10px;
+}
+main{
+    height: 100%;
+}
+/*  */
+/*  */
+.sportnieuws{
+    color:rgb(0, 0, 255);
+    font-size: 50px;
+}
+.fontfamily{
+    font-family: 'Courier New', Courier, monospace;
+}
+.tablerow{
+    width: 40px;
+}
+.nepnieuws{
+    color:darkgreen;
+    font-size: 34px;
+}
