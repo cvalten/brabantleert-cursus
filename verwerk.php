@@ -1,6 +1,6 @@
 <?php
 //Definieer de variabelen als leeg.
-$voornaam = $achternaam =$email=$bericht= "";
+$voornaam = $achternaam =$email=$bericht=$error= "";
 //Als er iets gepost is (de knop is ingedrukt)
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 //Vul de variabelen met de juiste inhoud.
@@ -8,8 +8,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $voornaam = ($_POST['voornaam']);
     $achternaam = ($_POST['achternaam']);
     $email = ($_POST['email']);
-    $datum = $_POST['datum'];
+//    $datum = $_POST['datum'];
     $bericht = ($_POST['bericht']);
+
+   //Controleer of een variabele nog leeg is.
+
+    if(empty($voornaam)){
+        $error .= "Voornaam is leeg!<br/>";
+    }
+    if(empty($achternaam)){
+        $error .= "Achternaam is leeg! <br/>";
+    }
+    if(empty($email)){
+        $error .= "Email is leeg!<br/>";
+    }
 }
 //Anders proberen ze iets wat niet mag
 else{
@@ -25,7 +37,7 @@ else{
 ?>
     <main style="border: 6px double rgb(136, 210, 136);">
 <?php
-print_r($_POST);
+echo $error;
 //TODO: Verwerk inhoud naar een excel bestand 
 //Todo: Mail klant.
 ?>
