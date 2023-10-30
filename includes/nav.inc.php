@@ -4,5 +4,6 @@
     </header>
     <nav style="background-color: chocolate;">
         <a href="index.php" >Hoofdmenu</a>
-        <a href="about_me.php">Over mij!</a>           
+        <a href="about_me.php">Over mij!</a>  
+        <a href="contact.php">Neem contact op!</a>        
     </nav>
