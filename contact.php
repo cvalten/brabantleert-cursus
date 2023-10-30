@@ -49,35 +49,48 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 ?>
-    <main style="border: 6px double rgb(136, 210, 136);">
-<a href="verwerk.php?lang=nl">NL</a>
-    <form method="POST" action="verwerk.php">
-    <table>
-    <tr>
-      <td class="width-250">Voornaam:</td>
-      <td><input type="text" name="voornaam" required></td>
-    </tr>
-    <tr>
-      <td class="width-250">Achternaam:</td>
-      <td><input type="text" name="achternaam"></td>
-    </tr>
-    <tr>
-      <td class="width-250">E-mail:</td>
-      <td><input type="email" name="email" required></td>
-    </tr>
-    <tr>
-      <td class="width-250">datum:</td>
-      <td><input type="date" name="datum" required></td>
-    </tr>
-    <tr>
-      <td class="width-250">Je bericht:</td>
-      <td><textarea name="bericht"></textarea></td>
-    </tr>
-    <tr>
-      <td colspan="2"><input type="submit" value="Verzenden"></td>
-    </tr>
-  </table>
+<main style="border: 6px double rgb(136, 210, 136);">
+    <?=$error;?> <?=$errorCount;?>
+    <?php
+    //Controleer of showform nog true is (dus of er zijn fouten die gefixt moeten worden
+    //Of het is de 1e keer dat de pagina geladen.
+    if($showform == true)
+    {
+    ?>
+    <form method="POST">
+        <table>
+        <tr>
+          <td class="width-250">Voornaam:</td>
+          <td><input type="text" name="voornaam" value="<?=$_POST['voornaam'] ??""?>" > <?=$errorVoornaam;?></td>
+        </tr>
+        <tr>
+          <td class="width-250">Achternaam:</td>
+          <td><input type="text" name="achternaam" value="<?=$_POST['achternaam'] ??"";?>" ></td>
+        </tr>
+        <tr>
+          <td class="width-250">E-mail:</td>
+          <td><input type="email" name="email" value="<?=$_POST['email'] ??"";?>" ></td>
+        </tr>
+    <!--    <tr>-->
+    <!--      <td class="width-250">datum:</td>-->
+    <!--      <td><input type="date" name="datum" required></td>-->
+    <!--    </tr>-->
+        <tr>
+          <td class="width-250">Je bericht:</td>
+          <td><textarea name="bericht"></textarea></td>
+        </tr>
+        <tr>
+          <td colspan="2"><input type="submit" value="Verzenden"></td>
+        </tr>
+      </table>
     </form>
+        <?php
+    }
+    else
+    {
+     echo "Bedank voor het invullen van de site.";
+    }
+        ?>
 </main>
 <?php
     include("includes/footer.inc.php");
